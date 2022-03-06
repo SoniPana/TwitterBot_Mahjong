@@ -4,8 +4,8 @@ on:
     branches: 
       - main
   schedule:
-    # 定期実行する時間・・・①
-    - cron: '* */6 * * *'
+    # 定期実行する時間
+    - cron: '0 */6 * * *'
 
 jobs:
   build:
