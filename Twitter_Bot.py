@@ -18,17 +18,16 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 #-----------------------------------------------------------------------------
+###z = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
+a = np.random.choice(['麻', '雀', '部'])
+b = np.random.choice(['麻', '雀', '部'])
+c = np.random.choice(['麻', '雀', '部'])
+d = np.random.choice(['設', '立', '部'])
+e = np.random.choice(['設', '立', '部'])
+f = np.random.choice(['設', '立', '部'])
+g = np.random.choice(['同', '好', '会'])
+h = np.random.choice(['同', '好', '会'])
+i = np.random.choice(['同', '好', '会'])
 
-a = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-b = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-c = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-d = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-e = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-f = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-g = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-h = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-i = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-j = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-
-x = a + b + c + d + e + f + g + h + i + j + '(非公式)'
+x = a + b + c + d + e + f + g + h + i + '(非公式)'
 api.update_status(status = x)
