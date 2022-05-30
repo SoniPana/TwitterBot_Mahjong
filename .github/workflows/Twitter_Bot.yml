@@ -1,5 +1,6 @@
 name: Twitter_Bot
 on:
+  workflow_dispatch:
   push:
     branches: 
       - main
@@ -36,3 +37,5 @@ jobs:
         run:
           # 定期実行するファイルを指定。・・・③
           python Twitter_Bot.py
+            
+      - uses: gautamkrishnar/keepalive-workflow@master
