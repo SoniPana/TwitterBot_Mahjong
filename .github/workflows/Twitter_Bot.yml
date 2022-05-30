@@ -38,4 +38,6 @@ jobs:
           # 定期実行するファイルを指定。・・・③
           python Twitter_Bot.py
             
-      - uses: gautamkrishnar/keepalive-workflow@master
+      - name: Keepalive Workflow
+        uses: gautamkrishnar/keepalive-workflow@1.0.7
+
