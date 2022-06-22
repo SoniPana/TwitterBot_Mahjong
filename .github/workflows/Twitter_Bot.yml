@@ -1,9 +1,9 @@
 name: Twitter_Bot
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - main
+  #push:
+    #branches: 
+      #- main
   schedule:
     # 定期実行する時間
     - cron: '0 */12 * * *'
@@ -17,7 +17,7 @@ jobs:
     # 実行する処理＆コマンド指定
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.10.4
+      - name: Set up Python 3.6.15
         uses: actions/setup-python@v1
         with:
           python-version: '3.6.15'
