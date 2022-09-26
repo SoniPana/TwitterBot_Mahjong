@@ -27,6 +27,8 @@ def oya():
         tile2 = str(random.randrange(1, 7))
     else:
         tile2 = str(random.randrange(1, 9))
+        if tile2 == "5" and random.randint(0, 1) == 1 and l.count(tile1 + "6!") == 0:
+            tile2 = "6!"
     global tile
     tile = tile1 + tile2
 
