@@ -69,7 +69,7 @@ while num < 15:
         num += 1
 
 # 牌の画像並べ
-back = Image.open('images/background.png')
+back = Image.open('images/Background.png')
 img1 = back.copy()
 x = 148
 img1.save('images/upload.png', quality=95)
