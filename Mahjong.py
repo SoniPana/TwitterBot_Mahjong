@@ -38,8 +38,8 @@ def haipai():
 # 廃の画像貼り付け
 def image_paste(a, b, c):
     # 背景画像、牌の画像を開く
-    img1 = Image.open('./images/upload.png')
-    img2 = Image.open('./images/' + a)
+    img1 = Image.open('images/upload.png')
+    img2 = Image.open('images/' + a)
     # サイズ調節
     img2_size = (round(img2.width * 0.25), round(img2.height * 0.25))
     img2 = img2.resize(img2_size)
@@ -47,7 +47,7 @@ def image_paste(a, b, c):
     img_clear = Image.new("RGBA", img1.size, (255, 255, 255, 0))
     img_clear.paste(img2, (b, c))
     img1 = Image.alpha_composite(img1, img_clear)
-    img1.save('./images/upload.png', quality=95)
+    img1.save('images/upload.png', quality=95)
 
 
 #-----------------------------------------------------------------------------
@@ -69,10 +69,10 @@ while num < 15:
         num += 1
 
 # 牌の画像並べ
-back = Image.open('./images/background.png')
+back = Image.open('images/background.png')
 img1 = back.copy()
 x = 148
-img1.save('./images/upload.png', quality=95)
+img1.save('images/upload.png', quality=95)
 for i in sorted(l):
     image_paste(i, x, 393)
     x += 65
@@ -80,4 +80,4 @@ image_paste(dora, 570, 188)
 
 #-----------------------------------------------------------------------------
 # ツイート
-api.update_status_with_media(filename="./images/upload.png")
+api.update_status_with_media(filename="images/upload.png")
