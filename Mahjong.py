@@ -80,4 +80,4 @@ image_paste(dora, 570, 188)
 
 #-----------------------------------------------------------------------------
 # ツイート
-api.media_upload('images/upload.png')
+api.update_status_with_media(status='今日の配牌', filename='images/upload.png')
