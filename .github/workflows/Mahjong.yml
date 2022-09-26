@@ -1,0 +1,41 @@
+name: Mahjong
+on:
+  workflow_dispatch:
+  #schedule:
+    # 定期実行する時間
+    #- cron: '0 */12 * * *'
+
+jobs:
+  build:
+    # Ubuntuの最新版環境内で処理を実行することを指定
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    # 実行する処理＆コマンド指定
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.10'
+          architecture: 'x64'
+      - name: Install dependencies
+        run:
+          # pip更新
+          python -m pip install --upgrade pip
+          pip install python-dotenv
+          pip install tweepy
+          pip install Pillow
+
+      - name: Run script
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_SECRET: ${{ secrets.API_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+        run:
+          # 定期実行するファイルを指定。・・・③
+          python Mahjong.py
+            
+      - name: Keepalive Workflow
+        uses: gautamkrishnar/keepalive-workflow@1.0.7
