@@ -80,4 +80,4 @@ image_paste(dora, 570, 188)
 
 #-----------------------------------------------------------------------------
 # ツイート
-api.update_status_with_media(filename="images/upload.png")
+api.media_upload('images/upload.png')
