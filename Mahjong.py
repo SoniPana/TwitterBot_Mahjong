@@ -30,7 +30,7 @@ def haipai():
     else:
         tile2 = str(random.randrange(1, 9))
         # 赤ドラ抽選(既にある場合は除外)
-        if tile2 == '5' and random.randint(0, 4) == 1 and l.count(tile1 + '6!') == 0:
+        if tile2 == '5' and random.randint(1, 4) == 1 and l.count(tile1 + '6!') == 0:
             tile2 = '6!'
     global tile
     tile = tile1 + tile2 + '.png'
