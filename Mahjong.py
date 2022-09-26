@@ -48,4 +48,16 @@ while num < 15:
         num += 1
 print(dora)
 
-img = Image.open('./images/back.png')
+back = Image.open('./images/background.png')
+img1 = back.copy()
+x = 0
+img1.save('./images/upload.png', quality=95)
+for i in l:
+    img1 = Image.open('./images/upload.png')
+    img2 = Image.open('./images/' + i)
+    size = (round(img2.width * 0.25), round(img2.height * 0.25))
+    img2 = img2.resize(size)
+    img1.paste(img2, (x, 50))
+    img1.save('./images/upload.png', quality=95)
+    x += 60
+    
