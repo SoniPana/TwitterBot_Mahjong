@@ -1,7 +1,8 @@
 # coding: UTF-8
 import settings
 import tweepy
-import numpy as np
+import random
+
 
 #-----------------------------------------------------------------------------
 # keyの指定(情報漏洩を防ぐため伏せています)
@@ -19,15 +20,12 @@ api = tweepy.API(auth)
 
 #-----------------------------------------------------------------------------
 ###z = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
-a = np.random.choice(['麻', '雀', '部'])
-b = np.random.choice(['麻', '雀', '部'])
-c = np.random.choice(['麻', '雀', '部'])
-d = np.random.choice(['設', '立', '部'])
-e = np.random.choice(['設', '立', '部'])
-f = np.random.choice(['設', '立', '部'])
-g = np.random.choice(['同', '好', '会'])
-h = np.random.choice(['同', '好', '会'])
-i = np.random.choice(['同', '好', '会'])
+text_li = ['麻雀部', '設立部', '同好会']
+li = []
+for l in text_li:
+    for i in range(3):
+        li.append(random.choice(l))
+li = ''.join(li) + '(非公式)'
+print(li)
 
-x = a + b + c + d + e + f + g + h + i + '(非公式)'
-api.update_status(status = x)
+api.update_status(status=li)

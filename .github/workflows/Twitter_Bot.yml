@@ -17,9 +17,8 @@ jobs:
     timeout-minutes: 5
     # 実行する処理＆コマンド指定
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
           architecture: 'x64'
@@ -27,9 +26,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install python-dotenv
           pip install tweepy
-          pip install numpy
           python Twitter_Bot.py
-            
       - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@1.0.7
+        uses: gautamkrishnar/keepalive-workflow@v1
 
