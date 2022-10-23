@@ -30,10 +30,9 @@ def haipai():
     else:
         tile2 = str(random.randrange(1, 9))
         # 赤ドラ抽選(既にある場合は除外)
-        if tile2 == '5' and random.randint(1, 4) == 1 and l.count(tile1 + '6!') == 0:
+        if tile2 == '5' and random.randint(1, 4) == 1 and l.count(tile1 + '6!.png') == 0:
             tile2 = '6!'
-    global tile
-    tile = tile1 + tile2 + '.png'
+    return tile1 + tile2 + '.png'
 
 # 廃の画像貼り付け
 def image_paste(a, b, c):
@@ -55,7 +54,7 @@ l = []
 num = 0
 # 牌の数が14になるまで繰り返す
 while num < 14:
-    haipai()
+    tile = haipai()
     # 同じ牌が既に4つあるなら除外
     if l.count(tile) < 4:
         l.append(tile)
@@ -63,7 +62,7 @@ while num < 14:
 print(sorted(l))
 # ドラ表示牌抽選
 while num < 15:
-    haipai()
+    tile = haipai()
     if l.count(tile) < 4:
         dora = tile
         num += 1
