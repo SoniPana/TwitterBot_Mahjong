@@ -56,14 +56,21 @@ num = 0
 while num < 14:
     tile = haipai()
     # 同じ牌が既に4つあるなら除外
-    if l.count(tile) < 4:
+    if not 'D' in tile and '5' in tile and l.count(tile) == 3 and l.count(tile[0] + '6!.png') < 1:
+        tile = tile[0] + '6!.png'
         l.append(tile)
         num += 1
+    elif not 'D' in tile and '5' in tile and l.count(tile) == 3 and l.count(tile[0] + '6!.png') == 1:
+        continue
+    else:
+        if l.count(tile) < 4:
+            l.append(tile)
+            num += 1
 print(sorted(l))
 # ドラ表示牌抽選
 while num < 15:
     tile = haipai()
-    if l.count(tile) < 4:
+    if l.count(tile) < 4 and not '!' in tile:
         dora = tile
         num += 1
 
