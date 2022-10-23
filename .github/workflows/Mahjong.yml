@@ -24,9 +24,9 @@ jobs:
           architecture: 'x64'
       - run: |
           python -m pip install --upgrade pip
-          pip install python-dotenv
-          pip install tweepy
-          pip install Pillow
+          pip install python-dotenv==0.21.0
+          pip install tweepy==4.10.1
+          pip install Pillow==9.2.0
           python Mahjong.py
       - name: Keepalive Workflow
         uses: gautamkrishnar/keepalive-workflow@v1

@@ -24,8 +24,8 @@ jobs:
           architecture: 'x64'
       - run: |
           python -m pip install --upgrade pip
-          pip install python-dotenv
-          pip install tweepy
+          pip install python-doten==0.21.0
+          pip install tweepy==4.10.1
           python Twitter_Bot.py
       - name: Keepalive Workflow
         uses: gautamkrishnar/keepalive-workflow@v1
