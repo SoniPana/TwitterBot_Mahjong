@@ -9,6 +9,8 @@ env:
   API_SECRET: ${{ secrets.API_SECRET }}
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+  IMGUR: ${{ secrets.IMGUR }}
+  IFTTT: ${{ secrets.IFTTT }}
 
 jobs:
   build:
@@ -23,10 +25,12 @@ jobs:
           python-version: '3.x'
           architecture: 'x64'
       - run: |
-          python -m pip install --upgrade pip
-          pip install python-dotenv==0.21.0
-          pip install tweepy==4.10.1
-          pip install Pillow==9.2.0
+          echo "::group::pip install --upgrade pip"
+          python -m pip install --upgrade pip==23.0
+          pip install python-dotenv==0.21.1
+          pip install tweepy==4.12.1
+          pip install Pillow==9.4.0
+          echo "::endgroup::"
           python Mahjong.py
       - name: Keepalive Workflow
         uses: gautamkrishnar/keepalive-workflow@v1
