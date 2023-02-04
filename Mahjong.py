@@ -1,7 +1,10 @@
 # coding: UTF-8
+import os
 import settings
 import tweepy
 import random
+import json
+import requests
 from PIL import Image
 
 
@@ -18,6 +21,9 @@ auth.set_access_token(access_token, access_token_secret)
 
 # tweepyの設定（APIインスタンスの作成）
 api = tweepy.API(auth)
+
+# Imgur
+imgur = os.environ['IMGUR']
 
 #-----------------------------------------------------------------------------
 # 牌決め
@@ -86,4 +92,20 @@ image_paste(dora, 570, 188)
 
 #-----------------------------------------------------------------------------
 # ツイート
-api.update_status_with_media(status='今日の配牌', filename='images/upload.png')
+# api.update_status_with_media(status='今日の配牌', filename='images/upload.png')
+
+headers = {'authorization': f'Client-ID {imgur}'}
+files = {'image': (open('images/upload.png', 'rb'))}
+r = requests.post('https://api.imgur.com/3/upload', headers=headers, files=files)
+image_url = json.loads(r.text)['data']['link']
+
+headers = {
+    'Content-Type': 'application/json',
+}
+
+json_data = {
+    'value1': 'from IFTTT',
+    'value2': image_url
+}
+
+response = requests.post(os.environ['IFTTT'], headers=headers, json=json_data)
