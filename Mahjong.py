@@ -1,12 +1,11 @@
 # coding: UTF-8
-import os
-import settings
-import tweepy
-import random
 import json
+import os
+import random
 import requests
+import tweepy
 from PIL import Image
-
+import settings
 
 #-----------------------------------------------------------------------------
 # keyの指定(情報漏洩を防ぐため伏せています)

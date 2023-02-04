@@ -1,8 +1,8 @@
 # coding: UTF-8
-import settings
-import tweepy
+import os
 import random
-
+import tweepy
+import settings
 
 #-----------------------------------------------------------------------------
 # keyの指定(情報漏洩を防ぐため伏せています)
@@ -17,6 +17,9 @@ auth.set_access_token(access_token, access_token_secret)
 
 # tweepyの設定（APIインスタンスの作成）
 api = tweepy.API(auth)
+
+# Imgur
+imgur = os.environ['IMGUR']
 
 #-----------------------------------------------------------------------------
 ###z = np.random.choice(['麻', '雀', '部', '設', '立', '部', '同', '好', '会'])
