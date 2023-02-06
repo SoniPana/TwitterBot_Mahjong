@@ -103,7 +103,7 @@ headers = {
 }
 
 json_data = {
-    'value1': 'from IFTTT',
+    'value1': '今日の配牌',
     'value2': image_url
 }
 
