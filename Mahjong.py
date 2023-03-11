@@ -91,20 +91,21 @@ image_paste(dora, 570, 188)
 
 #-----------------------------------------------------------------------------
 # ツイート
-# api.update_status_with_media(status='今日の配牌', filename='images/upload.png')
+api.update_status_with_media(status='今日の配牌', filename='images/upload.png')
 
-headers = {'authorization': f'Client-ID {imgur}'}
-files = {'image': (open('images/upload.png', 'rb'))}
-r = requests.post('https://api.imgur.com/3/upload', headers=headers, files=files)
-image_url = json.loads(r.text)['data']['link']
+# # IFTTT
+# headers = {'authorization': f'Client-ID {imgur}'}
+# files = {'image': (open('images/upload.png', 'rb'))}
+# r = requests.post('https://api.imgur.com/3/upload', headers=headers, files=files)
+# image_url = json.loads(r.text)['data']['link']
 
-headers = {
-    'Content-Type': 'application/json',
-}
+# headers = {
+#     'Content-Type': 'application/json',
+# }
 
-json_data = {
-    'value1': '今日の配牌',
-    'value2': image_url
-}
+# json_data = {
+#     'value1': '今日の配牌',
+#     'value2': image_url
+# }
 
-response = requests.post(os.environ['IFTTT'], headers=headers, json=json_data)
+# response = requests.post(os.environ['IFTTT'], headers=headers, json=json_data)
